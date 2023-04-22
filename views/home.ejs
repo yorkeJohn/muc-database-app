@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('common/head.ejs', {pageName: 'Home'}) %>
+<body>
+  <%- include('common/header.ejs') %>
+  <main class="main">
+    <div class="option-card shadow">
+      <div class="col-flex">
+        <a href="/viewdata"><button class="button"><i class="bi bi-database-fill"></i> View Data</button></a>
+        <a href="/addsupplier"><button class="button"><i class="bi bi-person-fill-add"></i> Add Supplier</button></a>
+        <a href="/expenses"><button class="button"><i class="bi bi-calendar3"></i> Expenses Report</button></a>
+        <a href="/budget"><button class="button"><i class="bi bi-bar-chart-fill"></i> Budget Projection</button></a>
+      </div>
+    </div>
+  </main>
+  <%- include('common/footer.ejs') %>
+</body>
+</html>

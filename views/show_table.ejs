@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('common/head.ejs', {pageName: 'Table View'}) %>
+<body>
+  <%- include('common/header.ejs') %>
+  <main class="main">
+    <div class="table-card shadow">
+      <div class="heading"><%- title %></div>
+      <table id="table" class="display">
+        <thead>
+          <% tableHeader.forEach(header => { %>
+          <td><%= header %></td>
+          <% }) %>
+        </thead>
+        <tbody>
+          <% tableData.forEach(row => { %>
+          <tr><% row.forEach(col => { %><td><%= col %></td><% }) %></tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <a href="<%= backURL %>">
+        <button class="button mt">Back</button>
+      </a>
+    </div>
+  </main>
+  <%- include('common/footer.ejs') %>
+</body>
+<script>
+  $('#table').DataTable({
+    paging: false,
+    scrollY: '350px',
+    scrollCollapse: true,
+    responsive: true,
+    columnDefs: [{ targets: '_all', render: data => data.replace(/\n/g, '<br>') }]
+  });
+</script>
+</html>

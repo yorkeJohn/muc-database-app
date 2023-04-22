@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('common/head.ejs', {pageName: 'Add Supplier'}) %>
+<body>
+  <%- include('common/header.ejs') %>
+  <main class="main">
+    <div class="option-card shadow">
+      <div class="heading mb"><i class="bi bi-person-fill-add"></i> Add Supplier</div>
+      <div class="mb">
+        Please enter the new supplier's details
+      </div>
+      <form class="form-control" action="/addsupplier" method="get" novalidate>
+        <div class="col-flex">
+          <div class="flex">
+            <div class="input-area">
+              ID&nbsp;<input type="text" id="id" name="id" autocomplete="off" style="width: 60px;"
+              pattern="^[0-9]*$" maxlength="7" required>
+            </div>
+            <div class="input-area">
+              Name&nbsp;<input type="text" id="name" name="name" autocomplete="off" style="width: 200px;" required>
+            </div>
+            <div class="input-area">
+              Email&nbsp;<input type="email" id="email" name="email" autocomplete="off" style="width: 200px;"
+              placeholder="someone@example.com" required>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="input-area" style="flex-grow: 1;">
+              Phones&nbsp;(comma&nbsp;separated)&nbsp;
+              <input type="text" id="phones" name="phones" autocomplete="off" style="width: 100%;"
+              pattern="^(\d{1,3}-\(\d{3}\)\d{3}-\d{4})(,\s*\d{1,3}-\(\d{3}\)\d{3}-\d{4})*\s*$" placeholder="1-(555)555-1234" required>
+            </div>
+            <button class="button" type="submit" style="width: fit-content;">Go</button>
+          </div>
+        </div>
+        <div class="error-msg mt">Please ensure that all fields are filled out correctly</div>
+      </form>
+      <script src="scripts/form-control.js"></script>
+    </div>
+  </main>
+</body>
+<%- include('common/footer.ejs') %>
+</html>

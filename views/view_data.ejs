@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('common/head.ejs', {pageName: 'View Data'}) %>
+<body>
+  <%- include('common/header.ejs') %>
+  <main class="main">
+    <div class="option-card shadow">
+      <div class="heading mb"><i class="bi bi-database-fill"></i> View Data</div>
+      <div class="mb">Please select a table</div>
+      <form action="/viewdata" method="get">
+        <div class="flex">
+          <select class="select" name="table" id="">
+            <% tables.forEach(table => { %>
+            <option value="<%= table %>"><%= table %></option>
+            <% }) %>
+          </select>
+          <button class="button" type="submit">Go</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <%- include('common/footer.ejs') %>
+</body>
+</html>

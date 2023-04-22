@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('common/head.ejs', {pageName: 'Budget Projection'}) %>
+<body>
+  <%- include('common/header.ejs') %>
+  <main class="main">
+    <div class="option-card shadow">
+      <div class="heading mb"><i class="bi bi-bar-chart-fill"></i> Budget Projection</div>
+      <div class="mb">Please enter a number of years and an inflation rate</div>
+      <form class="form-control" action="/budget" method="get" novalidate>
+        <div class="flex">
+          <div class="input-area" type="number" id="years" name="years">
+            <input class="budget-input" type="text" id="years" name="years" autocomplete="off"
+            pattern="^[0-9]*$" maxlength="2" required>&nbsp;Years
+          </div>
+          <div class="input-area">
+            <input class="budget-input" type="text" id="inflation" name="inflation" autocomplete="off"
+            pattern="^[0-9]*$" maxlength="2" required>&nbsp;%
+          </div>
+          <button class="button" type="submit">Go</button>
+        </div>
+        <div class="error-msg mt">Please ensure that all fields are filled out correctly</div>
+      </form>
+      <script src="scripts/form-control.js"></script>
+    </div>
+  </main>
+</body>
+<%- include('common/footer.ejs') %>
+</html>

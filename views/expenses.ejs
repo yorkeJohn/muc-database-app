@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('common/head.ejs', {pageName: 'Expenses Report'}) %>
+<body>
+  <%- include('common/header.ejs') %>
+  <main class="main">
+    <div class="option-card shadow">
+      <div class="heading mb"><i class="bi bi-calendar3"></i> Expenses Report</div>
+      <div class="mb">Please select a range of years</div>
+      <form action="/expenses" method="get">
+        <div class="flex">
+          <div class="year-range input-area">
+            <div id="slider-range" class="slider"></div>
+            <div class="year-display">
+              <input type="text" id="yearStart" name="yearStart" readonly>
+              <span style="line-height: 0;">&nbsp;&mdash;&nbsp;</span>
+              <input type="text" id="yearEnd" name="yearEnd" readonly>
+            </div>
+          </div>
+          <button class="button" type="submit" style="float: right;">Go</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <%- include('common/footer.ejs') %>
+</body>
+<script>
+  let minYear = <%- JSON.stringify(minYear) %>;
+  let maxYear = new Date().getFullYear();
+  $("#slider-range").slider({
+    range: true,
+    min: minYear,
+    max: maxYear,
+    values: [minYear, maxYear],
+    slide: (event, ui) => {
+      $("#yearStart").val(ui.values[0]);
+      $("#yearEnd").val(ui.values[1]);
+    }
+  });
+  $("#yearStart").val($("#slider-range").slider("values", 0));
+  $("#yearEnd").val($("#slider-range").slider("values", 1));
+</script>
+</html>
