@@ -6,5 +6,5 @@ CREATE TABLE transactions (
 	CarID INT, 
 	PRIMARY KEY(TransactionID, CustomerID),
 	FOREIGN KEY (CustomerID) REFERENCES customers(CustomerID),
-    FOREIGN KEY (CarID) REFERENCES cars(CarID)
+  FOREIGN KEY (CarID) REFERENCES cars(CarID)
 ) engine = innodb;	

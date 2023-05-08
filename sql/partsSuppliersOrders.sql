@@ -32,7 +32,7 @@ CREATE TABLE order_parts (
 	PartID INT NOT NULL,
 	Quantity INT,
 	PRIMARY KEY(OrderID, PartID),
-    FOREIGN KEY (OrderID) REFERENCES orders(OrderID),
+  FOREIGN KEY (OrderID) REFERENCES orders(OrderID),
 	FOREIGN KEY (PartID) REFERENCES parts(PartID)
 ) engine = innodb;
 
