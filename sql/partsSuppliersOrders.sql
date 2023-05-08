@@ -35,5 +35,3 @@ CREATE TABLE order_parts (
   FOREIGN KEY (OrderID) REFERENCES orders(OrderID),
   FOREIGN KEY (PartID) REFERENCES parts(PartID)
 ) engine = innodb;
-
-

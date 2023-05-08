@@ -41,5 +41,3 @@ CREATE TABLE car_sales (
   FOREIGN KEY (CustomerID) REFERENCES customers(CustomerID),
   FOREIGN KEY (CarID) REFERENCES cars_for_sale(CarID)
 ) engine = innodb;
-
-
